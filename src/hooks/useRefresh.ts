@@ -1,11 +1,11 @@
+import axios from "@/utils/axios";
 import { useAuthContext } from "@/utils/store";
-import axios from "axios";
 
 export default function useRefresh() {
   const { setAuth } = useAuthContext();
 
   const refresh = async () => {
-    const response = await axios.get("/api/v1/auth/refresh", {
+    const response = await axios.get("/api/v1/auth/refresh_token", {
       headers: { "Content-Type": "application/json" },
       withCredentials: true,
     });

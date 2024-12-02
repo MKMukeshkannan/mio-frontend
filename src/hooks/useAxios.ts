@@ -22,9 +22,9 @@ const useAxiosPrivate = () => {
       async (err: CanceledError<any>) => {
         const prevReq = err?.config;
         if (err.response?.status === 403) {
-          const newToken = await refresh();
+          const {access_token} = await refresh();
           if (prevReq) {
-            prevReq.headers["authorization"] = `Bearer ${newToken}`;
+            prevReq.headers["authorization"] = `Bearer ${access_token}`;
             return axiosPrivate(prevReq);
           }
         }
