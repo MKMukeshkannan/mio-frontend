@@ -1,6 +1,7 @@
 'use client'
 
 import axios from '@/utils/axios';
+import { backend } from '@/utils/config';
 import { Institute } from '@components/institute'
 import { Navbar } from '@components/navbar'
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -34,8 +35,10 @@ export default function Home (){
 
     useEffect(() => {
       try {
+		console.log(backend)
         const get_search_data = async () => {
           const response = await axios.get(`/api/v1/institutions/search-institutions?query=${search_params.get("query")}`);
+				console.log(response)
           setData(response.data.result);
         };
 

@@ -56,7 +56,7 @@ export default function Home() {
           onSubmit={handleSubmit(onSubmit)}
           className= "flex w-full"
           initial={isFocused ? { y: 0 } : { scale: 1, x: 0 }}
-          animate={isFocused ? { y: -400 } : { scale: 1, x: 0 }}
+          animate={isFocused ? { y: -300 } : { scale: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
           <input
