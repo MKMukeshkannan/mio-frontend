@@ -22,7 +22,7 @@ export default function Login() {
   });
   const onSubmit = async (data: TLogin) => {
     try {
-      const response = await axios.post("/api/v1/auth/institute/login", data, {
+      const response = await axios.post(`/api/v1/auth/${loginType}/login`, data, {
         headers: { "Content-Type": "application/json" },
         withCredentials: true
       });
@@ -35,7 +35,7 @@ export default function Login() {
         type: (loginType === 'staff') ? "STF" : "INS",
       });
 
-      if (response.statusText === "OK") return router.push('institute/admin');
+      if (response.statusText === "OK") return router.push(`${loginType}/admin`);
 
     } catch (e) {
       setError("root", {
