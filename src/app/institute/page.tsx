@@ -66,13 +66,14 @@ export default function Home (){
 
     return (
 
-        <div className='flex flex-col w-screen h-screen px-4 bg-sky-50'>
+        <main className='flex flex-col g-4 w-full min-h-screen p-4'>
             <Navbar/>
 
-            <form onSubmit={handleSubmit(onSubmit)} className='flex space-x-3'>
-              <input {...register("input")}  className="shadow-[3px_3px_0px_0px_rgba(0,0,0)] h-8 text-xl rounded-md border border-[#0a0a0a] focus:outline-none p-5 w-full max-w-sm" />
-              <button type='submit' disabled={isSubmitting} className="shadow-[3px_3px_0px_0px_rgba(0,0,0)] bg-blue-400 hover:bg-blue-200 rounded-sm px-5">
-                LOGIN
+      <section className="flex flex-col px-10">
+            <form onSubmit={handleSubmit(onSubmit)} className='flex w-full'>
+              <input {...register("input")}  className="w-1/2 h-12 rounded border border-[#9888FF] focus:outline-none p-5 bg-[#ECECFF] text-xl" />
+              <button type='submit' disabled={isSubmitting} className="w-20 h-12 rounded border border-[#9888FF] bg-[#AC9EFF] hover:bg-[#9888FF] text-xl ml-5">
+            🔍
               </button>
               {errors.input?.message}
             </form>
@@ -83,27 +84,8 @@ export default function Home (){
                   <Link href={`institute/${val.ins_id}`}>{val.name}</Link>
                 </div>) }
             </section>
-
-            {/*
-            <div className='flex flex-col items-center'>
-
-                <div className='grid gap-20 grid-cols-3'>
-
-                    <div className="flex gap-4 w-full h-full col-span-3">
-                        <input type="text" className="border-2 border-black rounded w-2/5 p-4 shadow-gray-400 shadow-lg" />
-                        <button className="bg-black text-white p-4 shadow-gray-400 shadow-lg">Search</button>
-                    </div>
-
-                    {collegeNames.map((name,i:number)=>(
-                        <Institute i={i} name={name} key={i}/>
-                    ))}
-
-                </div>  
-
-            </div>
-            */}
-
-        </div>
+</section>
+        </main>
 
     )
 }
