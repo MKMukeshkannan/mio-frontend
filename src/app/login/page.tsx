@@ -47,34 +47,33 @@ export default function Login() {
 
   return (
     <main className="flex items-center justify-center min-h-screen">
-      <h1 className="cursor-pointer absolute top-10 right-10 font-bold">HOME</h1>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col items-center w-full max-w-sm space-y-3">
-        <h1 className="text-5xl font-bold">LOGIN</h1>
-        <p>
+      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col items-center w-full  space-y-3">
+        <h1 className="text-5xl font-bold">Welcome to Cool Name</h1>
+        <p className="text-xl">
           Login as:{" "}
-          <span className={`cursor-pointer ${loginType === "institution" && "font-bold"}`} onClick={() => setLoginType("institution")}>
+          <span className={`cursor-pointer hover:italic ${loginType === "institution" && "underline text-[#AC9EFF]"}`} onClick={() => setLoginType("institution")}>
             Institution
           </span>{" | "}
-          <span className={`cursor-pointer ${loginType === "staff" && "font-bold"}`} onClick={() => setLoginType("staff")}>
+          <span className={`cursor-pointer hover:italic ${loginType === "staff" && "underline text-[#AC9EFF]"}`} onClick={() => setLoginType("staff")}>
             Staff
           </span>
         </p>
         <input 
           {...register("username")}
-          className="shadow-[3px_3px_0px_0px_rgba(0,0,0)] h-8 text-xl rounded-md border border-[#0a0a0a] focus:outline-none p-5 w-full"
-          placeholder="username" 
+          className="w-1/4 rounded border border-[#9888FF] focus:outline-none p-5 bg-[#ECECFF] text-xl"
+          placeholder="Mail ID" 
         />
         <input
           {...register("password")}
-          className="shadow-[3px_3px_0px_0px_rgba(0,0,0)] h-8 text-xl rounded-md border border-[#0a0a0a] focus:outline-none p-5 w-full"
-          placeholder="password"
+          className="w-1/4 rounded border border-[#9888FF] focus:outline-none p-5 bg-[#ECECFF] text-xl"
+          placeholder="Password"
           type="password" 
         />
-        <button disabled={isSubmitting} onSubmit={handleSubmit(onSubmit)} className="shadow-[3px_3px_0px_0px_rgba(0,0,0)] p-5 py-2 bg-blue-400 hover:bg-blue-200 rounded-sm relative top-3">
-          LOGIN
+        <button disabled={isSubmitting} onSubmit={handleSubmit(onSubmit)} className="w-2/12 p-5 rounded border border-[#9888FF] bg-[#AC9EFF] hover:bg-[#9888FF] text-xl">
+          Login
         </button>
-        <p className="relative top-16 text-sm">Need to create new Institution ? <span className="font-bold cursor-pointer">Sign-Up</span></p>
+        <p className="relative top-5 text-sm">New Institution ? <span className="text-[#AC9EFF] cursor-pointer">Sign-Up</span> with us</p>
       </form>
     </main>
   );
