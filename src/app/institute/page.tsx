@@ -81,11 +81,15 @@ export default function Home (){
               {errors.input?.message}
             </form>
 
-            <section>
-              {data?.map((val, i) => 
-                <div key={i} className='border'>
+            <section className='mt-5'>
+              {data?.map((val, i) =>
+						<section key={i} className='flex flex-row border justify-between p-5 mt-2 rounded'>
+                <div className='flex flex-col'>
                   <Link href={`institute/${val.ins_id}`}>{val.name}</Link>
-                </div>) }
+							<Link className='text-sm hover:underline' href={val.website ? val.website : ""}>{val.website ? val.website : "Website Unavailable" }</Link>
+                </div>
+							<div className='border-l w-14 bg-black h-14 rounded-full'></div>
+				</section>) }
             </section>
 </section>
         </main>
