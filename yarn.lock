@@ -1269,7 +1269,7 @@ form-data@^4.0.0:
 
 framer-motion@^11.13.1:
   version "11.13.1"
-  resolved "https://registry.npmjs.org/framer-motion/-/framer-motion-11.13.1.tgz"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-11.13.1.tgz#f15ca61c2b77067f4c7bc75833adae711fbef1fe"
   integrity sha512-F40tpGTHByhn9h3zdBQPcEro+pSLtzARcocbNqAyfBI+u9S+KZuHH/7O9+z+GEkoF3eqFxfvVw0eBDytohwqmQ==
   dependencies:
     motion-dom "^11.13.0"
@@ -1888,17 +1888,29 @@ minimist@^1.2.0, minimist@^1.2.6:
 
 motion-dom@^11.13.0:
   version "11.13.0"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/motion-dom/-/motion-dom-11.13.0.tgz"
+=======
+  resolved "https://registry.yarnpkg.com/motion-dom/-/motion-dom-11.13.0.tgz#a8f86b3aedb55598a8e3dd4114f1c3347153baf2"
+>>>>>>> a9cd3db15c4400ed2bd7b4b1dcc0abf1bf966d8a
   integrity sha512-Oc1MLGJQ6nrvXccXA89lXtOqFyBmvHtaDcTRGT66o8Czl7nuA8BeHAd9MQV1pQKX0d2RHFBFaw5g3k23hQJt0w==
 
 motion-utils@^11.13.0:
   version "11.13.0"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/motion-utils/-/motion-utils-11.13.0.tgz"
+=======
+  resolved "https://registry.yarnpkg.com/motion-utils/-/motion-utils-11.13.0.tgz#e65fab5e26a1da3b18b4b4d1f3d0067977ccfd4a"
+>>>>>>> a9cd3db15c4400ed2bd7b4b1dcc0abf1bf966d8a
   integrity sha512-lq6TzXkH5c/ysJQBxgLXgM01qwBH1b4goTPh57VvZWJbVJZF/0SB31UWEn4EIqbVPf3au88n2rvK17SpDTja1A==
 
 motion@^11.13.1:
   version "11.13.1"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/motion/-/motion-11.13.1.tgz"
+=======
+  resolved "https://registry.yarnpkg.com/motion/-/motion-11.13.1.tgz#56c41c0c81a8d2d8fc7e7575ff627b1a84db1b72"
+>>>>>>> a9cd3db15c4400ed2bd7b4b1dcc0abf1bf966d8a
   integrity sha512-64+QpZQv8WJJFn+tEEzX04il9s6ReA6lhKRZaxzD6SunGqoaq5g+AFVfcKWme8N83eytUOpGp7mpfJ9cyZlhAA==
   dependencies:
     framer-motion "^11.13.1"
