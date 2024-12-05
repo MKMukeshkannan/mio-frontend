@@ -4,10 +4,16 @@ import axios from '@/utils/axios';
 import { Institute } from '@components/institute'
 import { Navbar } from '@components/navbar'
 import { zodResolver } from '@hookform/resolvers/zod';
+import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
+
+interface TData {
+  ins_id: string;
+  name: string;
+};
 
 export default function Home (){
     // const collegeNames: string[] = [
@@ -24,7 +30,7 @@ export default function Home (){
 
     const search_params = useSearchParams();
     const query = (search_params.get("query"));
-    const [ data, setData ] = useState();
+    const [ data, setData ] = useState<TData[]>();
 
     useEffect(() => {
       try {
@@ -49,7 +55,7 @@ export default function Home (){
 
     const onSubmit = async (data: TSearch) => {
       try {
-        router.push(`/institutes?query=${data.input}`);
+        router.push(`/institute?query=${data.input}`);
       } catch (e) {
         setError("root", {
           type: "server",
@@ -71,7 +77,12 @@ export default function Home (){
               {errors.input?.message}
             </form>
 
-            {JSON.stringify(data)}
+            <section>
+              {data?.map((val, i) => 
+                <div key={i} className='border'>
+                  <Link href={`institute/${val.ins_id}`}>{val.name}</Link>
+                </div>) }
+            </section>
 
             {/*
             <div className='flex flex-col items-center'>

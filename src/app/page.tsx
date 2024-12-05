@@ -18,7 +18,7 @@ export default function Home (){
 
   const onSubmit = async (data: TSearch) => {
     try {
-      router.push(`/institutes?query=${data.input}`);
+      router.push(`/institute?query=${data.input}`);
     } catch (e) {
       setError("root", {
         type: "server",
