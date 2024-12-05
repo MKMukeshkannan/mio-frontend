@@ -31,51 +31,50 @@ export default function SignUp() {
 
   return (
     <main className="flex items-center w-full min-h-screen">
-      <h1 className="cursor-pointer absolute top-10 right-10 font-bold">HOME</h1>
-
         <form className="flex flex-col items-center space-y-3 w-full" onSubmit={handleSubmit(onSubmit)} >
-          <h1 className="text-5xl font-bold">SIGN UP</h1>
+          <h1 className="text-5xl font-bold">Welcome to Cool Name</h1>
+				<p className="text-xl"> Register your Institution to get started</p>
           <input 
             {...register("name")}
-            className={`${errors.name && "shadow-red-500" } shadow-[3px_3px_0px_0px_rgba(0,0,0)] h-8 text-xl rounded-md border border-[#0a0a0a] focus:outline-none p-5 w-full max-w-sm `}
-            placeholder="name" 
+            className={`${errors.name && "shadow-red-500" } w-1/4 rounded border border-[#9888FF] focus:outline-none p-5 bg-[#ECECFF] text-xl`}
+            placeholder="Institution Name" 
           />
           <input 
             {...register("website")}
-            className={`${errors.website && "shadow-red-500" } shadow-[3px_3px_0px_0px_rgba(0,0,0)] h-8 text-xl rounded-md border border-[#0a0a0a] focus:outline-none p-5 w-full max-w-sm `}
-            placeholder="website" 
+            className={`${errors.name && "shadow-red-500" } w-1/4 rounded border border-[#9888FF] focus:outline-none p-5 bg-[#ECECFF] text-xl`}
+            placeholder="Official Website" 
           />
           <input 
             {...register("mail")}
-            className={`${errors.mail && "shadow-red-500" } shadow-[3px_3px_0px_0px_rgba(0,0,0)] h-8 text-xl rounded-md border border-[#0a0a0a] focus:outline-none p-5 w-full max-w-sm `}
-            placeholder="mail" 
+            className={`${errors.name && "shadow-red-500" } w-1/4 rounded border border-[#9888FF] focus:outline-none p-5 bg-[#ECECFF] text-xl`}
+            placeholder="Instution Email" 
           />
           <input 
             {...register("phone_number")}
-            className={`${errors.phone_number && "shadow-red-500" } shadow-[3px_3px_0px_0px_rgba(0,0,0)] h-8 text-xl rounded-md border border-[#0a0a0a] focus:outline-none p-5 w-full max-w-sm `}
-            placeholder="phone number" 
+            className={`${errors.name && "shadow-red-500" } w-1/4 rounded border border-[#9888FF] focus:outline-none p-5 bg-[#ECECFF] text-xl`}
+            placeholder="Contact Number" 
           />
           <input 
             {...register("username")}
-            className={`${errors.username && "shadow-red-500" } shadow-[3px_3px_0px_0px_rgba(0,0,0)] h-8 text-xl rounded-md border border-[#0a0a0a] focus:outline-none p-5 w-full max-w-sm `}
-            placeholder="username" 
+            className={`${errors.name && "shadow-red-500" } w-1/4 rounded border border-[#9888FF] focus:outline-none p-5 bg-[#ECECFF] text-xl`}
+            placeholder="Username" 
           />
           <input
             {...register("password")}
-            className={`${errors.password && "shadow-red-500" } shadow-[3px_3px_0px_0px_rgba(0,0,0)] h-8 text-xl rounded-md border border-[#0a0a0a] focus:outline-none p-5 w-full max-w-sm `}
-            placeholder="password"
+            className={`${errors.name && "shadow-red-500" } w-1/4 rounded border border-[#9888FF] focus:outline-none p-5 bg-[#ECECFF] text-xl`}
+            placeholder="Password"
             type="password" 
           />
           <input
             {...register("confirm_password")}
-            className={`${errors.confirm_password && "shadow-red-500" } shadow-[3px_3px_0px_0px_rgba(0,0,0)] h-8 text-xl rounded-md border border-[#0a0a0a] focus:outline-none p-5 w-full max-w-sm `}
-            placeholder="confirm password"
+            className={`${errors.name && "shadow-red-500" } w-1/4 rounded border border-[#9888FF] focus:outline-none p-5 bg-[#ECECFF] text-xl`}
+            placeholder="Confirm Password"
             type="password" 
           />
-          <button disabled={isSubmitting} type="submit" className="shadow-[3px_3px_0px_0px_rgba(0,0,0)] p-5 py-2 bg-blue-400 hover:bg-blue-200 rounded-sm relative top-3">
-            SIGN UP
+          <button disabled={isSubmitting} type="submit" className="w-2/12 p-5 rounded border border-[#9888FF] bg-[#AC9EFF] hover:bg-[#9888FF] text-xl">
+            Sign Up
           </button>
-          <p className="relative top-5 text-sm"> Already have an accout ? <span className="font-bold cursor-pointer">Login</span></p>
+          <p className="relative top-5 text-sm"> Already a regestired Institution ? <span className="text-[#AC9EFF] cursor-pointer">Login</span></p>
         </form>
     </main>
   );
