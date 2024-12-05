@@ -18,7 +18,7 @@ async function get_staffs(id: string) {
 
     let data: TInstitute[] = await res.json()
     if (!data) notFound()
-  return data 
+    return data 
   } catch (e) {
     notFound();
   }

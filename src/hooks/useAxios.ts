@@ -3,16 +3,18 @@ import useRefresh from "./useRefresh";
 import { CanceledError } from "axios";
 import { axiosPrivate } from "@/utils/axios";
 import { useAuthContext } from "@/utils/store";
+import { useCookies } from "react-cookie";
 
 
 const useAxiosPrivate = () => {
   const refresh = useRefresh();
-  const { auth } = useAuthContext();
+  const { auth } = useAuthContext((state) => state);
+  const [ cookies ] = useCookies(['access_token']);
 
   useEffect(() => {
     const requestIntercept = axiosPrivate.interceptors.request.use((config) => {
       if (!config.headers["authorization"]) {
-        config.headers["authorization"] = `Bearer ${auth?.access_token}`;
+        config.headers["authorization"] = `Bearer ${cookies.access_token}`;
       }
       return config;
     }, (err) => Promise.reject(err));
@@ -21,7 +23,7 @@ const useAxiosPrivate = () => {
       (response) => response,
       async (err: CanceledError<any>) => {
         const prevReq = err?.config;
-        if (err.response?.status === 403) {
+        if (err.response?.status === 401) {
           const {access_token} = await refresh();
           if (prevReq) {
             prevReq.headers["authorization"] = `Bearer ${access_token}`;

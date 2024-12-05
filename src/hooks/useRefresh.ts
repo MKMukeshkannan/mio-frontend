@@ -11,10 +11,10 @@ export default function useRefresh() {
     });
 
     setAuth({
+      id: response.data.id,
       name: response.data.name,
       email: response.data.email,
       type: response.data.type,
-      access_token: response.data.access_token,
     });
 
     return response.data;

@@ -18,4 +18,13 @@ const LoginValidator = z.object({
     password: z.string({required_error: "password: is required"}),
 });
 
-export { InstitutionSignUp, LoginValidator };
+const StaffSchema = z.object({
+    name: z.string({required_error: "name: is required"}).min(10).max(30),
+    department: z.string({required_error: "designation: is required"}).min(3).max(30),
+    email: z.string({required_error: "email: is required"}).email(),
+    phone_number: z.string({required_error: "phone_number: is required"}).length(10),
+    username: z.string({required_error: "username: is required"}).min(6).max(30),
+    password: z.string({required_error: "password: is required"}),
+});
+
+export { InstitutionSignUp, LoginValidator, StaffSchema };

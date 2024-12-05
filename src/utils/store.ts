@@ -1,10 +1,11 @@
 import { create } from "zustand";
+import { persist, createJSONStorage } from "zustand/middleware";
 
 interface AuthState {
+  id: string;
   name: string;
   email: string;
   type: "INS" | "STF";
-  access_token: string;
 }
 
 interface AuthStoreState {
@@ -12,11 +13,19 @@ interface AuthStoreState {
   setAuth: (state: AuthState | null) => void;
 }
 
-const useAuthContext = create<AuthStoreState>((set) => ({
-  auth: null,
-  setAuth: (state) => {
-    set({ auth: state });
-  },
-}));
+const useAuthContext = create<AuthStoreState>()(
+  persist(
+    (set) => ({
+      auth: null,
+      setAuth: (state) => {
+        set({ auth: state });
+      },
+    }),
+    {
+      name: "auth",
+      storage: createJSONStorage(() => sessionStorage),
+    },
+  ),
+);
 
 export { useAuthContext };

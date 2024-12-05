@@ -1,6 +1,7 @@
 "use client";
 
 import axios from "@/utils/axios";
+import { useAuthContext } from "@/utils/store";
 import { LoginValidator } from "@/utils/validators";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
@@ -13,6 +14,7 @@ type TLoginType = "institution" | "staff";
 export default function Login() {
   const [loginType, setLoginType] = useState<TLoginType>("institution");
   const router = useRouter()
+  const setAuth = useAuthContext(s => s.setAuth);
 
   type TLogin = z.infer<typeof LoginValidator>;
   const { register, handleSubmit, formState: { errors, isSubmitting }, setError } = useForm<TLogin>({
@@ -24,7 +26,17 @@ export default function Login() {
         headers: { "Content-Type": "application/json" },
         withCredentials: true
       });
-      if (response.statusText === "OK") return router.push('/login');
+
+      console.log(response.data);
+      setAuth({
+        id: "",
+        name: response.data.name || "",
+        email: response.data.email || "",
+        type: (loginType === 'staff') ? "STF" : "INS",
+      });
+
+      if (response.statusText === "OK") return router.push('institute/admin');
+
     } catch (e) {
       setError("root", {
         type: "server",
