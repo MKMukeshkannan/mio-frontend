@@ -5,7 +5,6 @@ const InstitutionSignUp = z.object({
   phone_number: z.string({required_error: "phone number is required"}).length(10),
   mail: z.string({required_error: "mail is required"}).email(),
   website: z.string({required_error: "website is required"}).url(),
-  username: z.string({required_error: "username is required"}).min(6).max(12),
   password: z.string({required_error: "password is required"}).max(25, "Password too long - should be atmost 25 characteres").min(8, "Password too short - should be 8 chars minimum")
 }).extend({ confirm_password: z.string(), })
   .refine((data) => data.password === data.confirm_password, {
@@ -23,7 +22,6 @@ const StaffSchema = z.object({
     department: z.string({required_error: "designation: is required"}).min(3).max(30),
     email: z.string({required_error: "email: is required"}).email(),
     phone_number: z.string({required_error: "phone_number: is required"}).length(10),
-    username: z.string({required_error: "username: is required"}).min(6).max(30),
     password: z.string({required_error: "password: is required"}),
 });
 

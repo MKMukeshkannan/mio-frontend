@@ -54,11 +54,6 @@ export default function SignUp() {
             className={`${errors.name && "shadow-red-500" } w-1/4 rounded border border-[#9888FF] focus:outline-none p-5 bg-[#ECECFF] text-xl`}
             placeholder="Contact Number" 
           />
-          <input 
-            {...register("username")}
-            className={`${errors.name && "shadow-red-500" } w-1/4 rounded border border-[#9888FF] focus:outline-none p-5 bg-[#ECECFF] text-xl`}
-            placeholder="Username" 
-          />
           <input
             {...register("password")}
             className={`${errors.name && "shadow-red-500" } w-1/4 rounded border border-[#9888FF] focus:outline-none p-5 bg-[#ECECFF] text-xl`}

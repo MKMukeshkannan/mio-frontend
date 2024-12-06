@@ -9,10 +9,10 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-type TLoginType = "institution" | "staff";
+type TLoginType = "institute" | "staff";
 
 export default function Login() {
-  const [loginType, setLoginType] = useState<TLoginType>("institution");
+  const [loginType, setLoginType] = useState<TLoginType>("institute");
   const router = useRouter()
   const setAuth = useAuthContext(s => s.setAuth);
 
@@ -52,7 +52,7 @@ export default function Login() {
         <h1 className="text-5xl font-bold">Welcome to Cool Name</h1>
         <p className="text-xl">
           Login as:{" "}
-          <span className={`cursor-pointer hover:italic ${loginType === "institution" && "underline text-[#AC9EFF]"}`} onClick={() => setLoginType("institution")}>
+          <span className={`cursor-pointer hover:italic ${loginType === "institute" && "underline text-[#AC9EFF]"}`} onClick={() => setLoginType("institute")}>
             Institution
           </span>{" | "}
           <span className={`cursor-pointer hover:italic ${loginType === "staff" && "underline text-[#AC9EFF]"}`} onClick={() => setLoginType("staff")}>

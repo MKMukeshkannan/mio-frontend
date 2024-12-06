@@ -84,8 +84,6 @@ export default function InstituteAdmin() {
           placeholder="phone number" />
         <input {...register("department")} className="shadow-[3px_3px_0px_0px_rgba(0,0,0)] h-8 text-xl rounded-md border border-[#0a0a0a] focus:outline-none p-5 w-full" 
           placeholder="department" />
-        <input {...register("username")} className="shadow-[3px_3px_0px_0px_rgba(0,0,0)] h-8 text-xl rounded-md border border-[#0a0a0a] focus:outline-none p-5 w-full" 
-          placeholder="username" />
         <input {...register("password")} type="password" className="shadow-[3px_3px_0px_0px_rgba(0,0,0)] h-8 text-xl rounded-md border border-[#0a0a0a] focus:outline-none p-5 w-full" 
           placeholder="password" />
 

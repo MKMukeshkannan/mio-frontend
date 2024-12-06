@@ -1,14 +1,36 @@
 import { Navbar } from '@components/navbar'
 import { notFound } from 'next/navigation';
 import { backend } from '@/utils/config';
+import Link from 'next/link';
+import StaffList from '@/components/StaffList';
 
 interface TInstitute {
   ins_id: string;
   name: string;
-  website: string;
-  phone: string;
-}
+  website: string | null;
+  address: string | null;
+  logo_url: string | null;
+  founded_year: number | null;
+  phone_number: string | null;
+  mail: string | null;
+};
 
+interface TStaff {
+  name: string;
+  department: string | null;
+  designation: string | null;
+  email: string | null;
+  google_scholer_id: string | null;
+  h_index: number | null;
+  hashed_password: string | null;
+  institution: string | null;
+  layout: string | null;
+  linked_in: string | null;
+  phone_number: string | null;
+  profile_picture: string | null;
+  staff_id: string | null;
+  total_citation: string | null;
+};
 
 async function get_staffs(id: string) {
   try {
@@ -16,7 +38,7 @@ async function get_staffs(id: string) {
       cache: 'force-cache',
     })
 
-    let data: TInstitute[] = await res.json()
+    let data: TStaff[] = (await res.json()).UserData;
     if (!data) notFound()
     return data 
   } catch (e) {
@@ -30,9 +52,9 @@ async function get_institute(id: string) {
       cache: 'force-cache',
     })
 
-    let data: TInstitute[] = await res.json()
+    let data: TInstitute = (await res.json()).data
     if (!data) notFound()
-  return data 
+    return data 
   } catch (e) {
     notFound();
   }
@@ -53,53 +75,37 @@ export default async function Home ({ params, }: { params: Promise<{ institution
     const institution = await get_institute(institution_id)
     const staffs = await get_staffs(institution_id)
 
-
-    const staffNames: string[] = [
-      "John Doe",
-      "Jane Smith",
-      "Samuel Brown",
-      "Emily Davis",
-      "Michael Johnson",
-      "Sarah Wilson",
-      "David Lee",
-      "Anna Taylor",
-      "Robert White",
-      "Olivia Harris",
-    ];
+    console.log(institution);
+    console.log(staffs);
 
     return (
-        <div className="flex flex-col g-4 min-w-screen min-h-screen px-4"> 
+      <main className='h-screen'>
+        <Navbar />
 
-            <Navbar />
+        <section className='bg-green-100 h-48 flex justify-end'>
+          <section className='h-32 w-32 bg-blue-400 relative top-20 right-20'></section>
+        </section>
 
-            {JSON.stringify(institution)}
-            {JSON.stringify(staffs)}
+        <section className='px-24 p-8'>
+          <section className='flex items-center justify-between'>
+            <h1 className='text-4xl font-bold'>{institution.name}</h1>
+            <h1>T F I</h1>
+          </section>
+          <h3 className='text-md'>Address, Chennai{institution?.address}</h3>
+          <p className='mt-8'>Velit magna proident eiusmod commodo nisi ea. Cillum ad excepteur officia dolore consequat commodo deserunt labore non in amet Lorem nulla. Tempor esse cillum ut quis incididunt aliquip nulla ex aliquip ad in mollit officia. Minim ullamco magna commodo culpa. Officia nisi et qui Lorem minim aliqua laboris amet veniam. Elit occaecat enim minim fugiat ad commodo nisi aliquip enim duis non mollit esse eu.</p>
 
-            {/*
-            <div className='flex flex-col items-center pt-20'>
+          <h1 className='text-xl font-bold pt-5'>Contact Information</h1>
+          <p>Email: {institution.mail}</p>
+          <p>Phone Number: {institution.phone_number}</p>
+          <p>Website: {institution.website}</p>
+        </section>
 
-                <div className='grid gap-20 grid-cols-3'>
+        <StaffList staff_prop={staffs} />
 
-                    <div className="col-span-3 flex flex-col">
+        {/*
+        */}
+        <section className='h-28'></section>
 
-                        <div className="text-black text-8xl font-bold w-full h-full">LOOK FOR STAFFS</div>
-
-                        <div className="flex gap-4 w-full h-full">
-                            <input type="text" className="border-2 border-black rounded w-1/3 p-4 shadow-gray-400 shadow-lg" />
-                            <button className="bg-black text-white p-4 shadow-gray-400 shadow-lg">Search</button>
-                        </div>
-
-                    </div>
-
-                    {staffNames.map((name,i:number)=>(
-                        <Institute name={name} key={i}/>
-                    ))}
-
-                </div>  
-
-            </div>
-            */}
-
-        </div>
+      </main>
     )
 }
