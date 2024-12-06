@@ -32,7 +32,7 @@ export default function Home() {
   };
 
   return (
-    <main className="flex flex-col g-4 w-full min-h-screen p-4">
+    <main className="flex flex-col w-full min-h-screen p-2">
       <Navbar />
 
       <section className="flex flex-col justify-center items-start min-w-full h-0 flex-1 px-10">

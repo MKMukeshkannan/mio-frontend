@@ -30,7 +30,7 @@ export default function SignUp() {
   };
 
   return (
-    <main className="flex items-center w-full min-h-screen">
+    <main className="flex items-center w-full min-h-screen p-2">
         <form className="flex flex-col items-center space-y-3 w-full" onSubmit={handleSubmit(onSubmit)} >
           <h1 className="text-5xl font-bold">Welcome to Cool Name</h1>
 				<p className="text-xl"> Register your Institution to get started</p>

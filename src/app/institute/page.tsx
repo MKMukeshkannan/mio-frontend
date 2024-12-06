@@ -69,7 +69,7 @@ export default function Home (){
 
     return (
 
-        <main className='flex flex-col g-4 w-full min-h-screen p-4'>
+        <main className='flex flex-col g-4 w-full min-h-screen p-2'>
             <Navbar/>
 
       <section className="flex flex-col px-10">
